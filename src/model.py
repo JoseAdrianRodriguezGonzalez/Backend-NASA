@@ -58,17 +58,17 @@ if __name__ == "__main__":
     combined = "../out/WAC_ROI_NORTH_SUMMER_004P.COMBINED.TIF"
     output = "../out/moon_polar_tiles"
     pyr_file=[f for f in os.listdir(path) if f.endswith(".PYR.TIF")]
-    mask_file=[f for f in os.listdir(path)if f.endswith(".MASK.TIF")]
+    mask_file=[f for f in os.listdir(path)if f.endswith(".MASK.tiff")]
     i=0
     for pyr,mask in zip(pyr_file,mask_file):
         i+=1
        
-        combined="../out/"+pyr[:-8]+".COMBINED."+"TIF"
+        combined="../out/"+pyr[:-8]+".COMBINED."+"tiff"
         output=f"../out/moon_polar_tiles{i}"
         pyr="../images/"+pyr
         mask="../images/"+mask
         combine_mask(pyr, mask, combined)
         print(combined)
         print(output)
-        generate_tiles(combined, output, zoom="0-4")
+        generate_tiles(combined, output, zoom="0-8")
 
